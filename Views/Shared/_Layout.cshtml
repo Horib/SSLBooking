@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -37,11 +37,13 @@
                     </li>
                 </ul>
             </div>
+            <button id="light-btn" class="dark:text-white">Light</button>
+            <button id="dark-btn" class="dark:text-white">Dark</button>
         </div>
     </nav>
 </header>
-<div class="container">
-    <main role="main" class="pb-3">
+<div class="container flex flex-wrap justify-between items-center mx-auto">
+    <main role="main" class="w-full">
         @RenderBody()
     </main>
 </div>
