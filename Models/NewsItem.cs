@@ -9,5 +9,5 @@ public class NewsItem
     public string Message { get; set; } = String.Empty;
     public string? Message2 { get; set; }
 
-    public string? Type { get; set; } = String.Empty;
+    public string Type { get; set; } = "yellow";
 }

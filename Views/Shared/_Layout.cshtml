@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>SSL Booking</title>
     <link rel="icon" type="image/x-icon" href="~/assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+      </script>
     <link rel="stylesheet" href="~/css/styles.css"/>
-    <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  />
+    <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"/>
 </head>
 <body class="flex flex-col min-h-screen p-5 bg-slate-50 dark:bg-blue-200">
 <header class="sticky top-5 z-10">
@@ -49,24 +55,26 @@
         @RenderBody()
     </main>
 </div>
-<footer class=" p-4 bg-white rounded-lg shadow w-full mx-auto mt-auto md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-900">
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-        © 2022 <a asp-area="" asp-controller="Home" asp-action="Index">SSL Booking</a>. All Rights Reserved.
-    </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
-        <li>
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="mr-4 hover:underline md:mr-6 ">Home</a>
-        </li>
-        <li>
-            <a asp-area="" asp-controller="Booking" asp-action="Index" class="mr-4 hover:underline md:mr-6 ">Book Passage</a>
-        </li>
-        <li>
-            <a asp-area="" asp-controller="Routes" asp-action="Index" class="mr-4 hover:underline md:mr-6 ">Create Route</a>
-        </li>
-        <li>
-            <a href="https://github.com/" target="_blank" class="hover:underline">Github Repo</a>
-        </li>
-    </ul>
+<footer class="p-4 bg-white rounded-lg shadow w-full mx-auto mt-auto md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-900">
+    <div class="container flex justify-between mx-auto">
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+            © 2022 <a asp-area="" asp-controller="Home" asp-action="Index">SSL Booking</a>. All Rights Reserved.
+        </span>
+        <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+            <li>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="mr-4 hover:underline md:mr-6 ">Home</a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="Booking" asp-action="Index" class="mr-4 hover:underline md:mr-6 ">Book Passage</a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="Routes" asp-action="Index" class="mr-4 hover:underline md:mr-6 ">Create Route</a>
+            </li>
+            <li>
+                <a href="https://github.com/" target="_blank" class="hover:underline">Github Repo</a>
+            </li>
+        </ul>
+    </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>

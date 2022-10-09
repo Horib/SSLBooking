@@ -12,7 +12,7 @@ using SSLBooking.Models;
 namespace SSLBooking.Migrations
 {
     [DbContext(typeof(SSLBookingDbContext))]
-    [Migration("20221009163555_Initial")]
+    [Migration("20221009213953_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,6 +44,7 @@ namespace SSLBooking.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("NewsItemId");

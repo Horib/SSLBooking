@@ -19,3 +19,11 @@ darkBtn.addEventListener("click", () => {
     html.classList.remove(oldTheme)
     html.classList.add(localStorage.theme)
 })
+
+const newsItem = document.querySelectorAll(".news-item")
+newsItem.forEach((item) => {
+    item.addEventListener("click", () => {
+        item.querySelector(".fa-chevron-up").classList.toggle("rotate-180")
+        item.querySelector("#news-item-toggle").classList.toggle("hidden")
+    })
+})

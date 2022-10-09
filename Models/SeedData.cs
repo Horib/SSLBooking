@@ -71,7 +71,16 @@ public static class SeedData
                     new NewsItem()
                     {
                         Title = "Broytingar hjá Bygdaleiðum í viku 41",
-                        Message = "Í komandi viku (vika 41) verður heystferia, og tað merkir, at okkara bussar ið koyra til og frá ymsum skúlum, at teir grønu túrarnir í ferðaætlanini verða ikki koyrdir í viku 41. Koyrt verður sum vant aftur í viku 42."
+                        Message =
+                            "Í komandi viku (vika 41) verður heystferia, og tað merkir, at okkara bussar ið koyra til og frá ymsum skúlum, at teir grønu túrarnir í ferðaætlanini verða ikki koyrdir í viku 41. Koyrt verður sum vant aftur í viku 42.",
+                        Type = "sky"
+                    },
+                    new NewsItem()
+                    {
+                        Title = "Eyka ruta til Súðuroyar",
+                        Message =
+                            "Næstu 5 vikurnar Siglur Smyril tveir eykatúrar um dagin",
+                        Type = "emerald"
                     }
                 );
             }
