@@ -1,17 +1,54 @@
-﻿@model IQueryable<Route>
+﻿@model SSLBooking.Models.ViewModels.HomePageInfo
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    @foreach (var p in Model ?? Enumerable.Empty<Route>())
-    {
-        <div>
-            <h3>@p.Name - @p.Price</h3>
-            <p>@p.Description</p>
-            <p>@p.Location1  => @p.Location2</p>
-            <p>@p.Price</p>
+@* <div class="flex flex-row my-4 gap-8 h-full"> *@
+<div class="flex flex-row w-full mx-auto my-4 gap-8 bg-white shadow border-blue-400 ring-gray-200 p-6 rounded-lg dark:bg-gray-900">
+    <section class="w-full h-full">
+        <div class="flex flex-col gap-4">
+            @foreach (var p in Model.NewsItems)
+            {
+                <partial name="_NewsItemPartial" model="p"/>
+            }
         </div>
-    }
+        <div class="flex flex-col gap-4 my-6">
+            <div min-h>
+                <h2>Lorem</h2>
+            </div>
+            <div>Content section</div>
+        </div>
+    </section>
+    @* <div class="h-auto mx-auto bg-slate-300 w-0.5 rounded-full"></div> *@
+    <section class="min-w-fit flex flex-col gap-4">
+        <div class="relative w-full mx-auto text-left ring-1 mt-0 max-w-sm bg-white shadow border-blue-400 ring-gray-200 pl-6 pr-6 pt-6 pb-6 rounded-lg dark:bg-gray-900">
+            <div class="w-full max-w-none space-y-6 text-left mt-0">
+                <h2 class="truncate whitespace-nowrap mt-0 text-left text-gray-500 text-lg font-bold uppercase dark:text-white">
+                    Oyggjaleiðir
+                </h2>
+                @foreach (var p in Model.Routes)
+                {
+                    if (p.Type == "sea")
+                    {
+                        <partial name="_RoutePartial" model="p"/>
+                    }
+                }
+            </div>
+        </div>
+        <div class="relative w-full mx-auto text-left ring-1 mt-0 max-w-sm bg-white shadow border-blue-400 ring-gray-200 pl-6 pr-6 pt-6 pb-6 rounded-lg dark:bg-gray-900">
+            <div class="w-full max-w-none space-y-6 text-left mt-0">
+                <h2 class="truncate whitespace-nowrap mt-0 text-left text-gray-500 text-lg font-bold uppercase dark:text-white">
+                    Bygdaleiðir
+                </h2>
+                @foreach (var p in Model.Routes)
+                {
+                    if (p.Type == "land")
+                    {
+                        <partial name="_RoutePartial" model="p"/>
+                    }
+                }
+            </div>
+        </div>
+    </section>
 </div>

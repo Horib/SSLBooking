@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  />
 </head>
 <body class="flex flex-col min-h-screen p-5 bg-slate-50 dark:bg-blue-200">
-<header>
+<header class="sticky top-5 z-10">
     <nav class="bg-white shadow border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
             <a href="/" class="flex items-center">
@@ -24,18 +24,18 @@
                             Home
                         </a>
                     </li>
-                    @* <li> *@
-                    @*     <a asp-area="" asp-controller="Booking" asp-action="Index" *@
-                    @*        class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-transparent border-0 hover:text-blue-700 p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"> *@
-                    @*         Book Passage *@
-                    @*     </a> *@
-                    @* </li> *@
-                    @* <li> *@
-                    @*     <a asp-area="" asp-controller="Routes" asp-action="Index" *@
-                    @*        class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-transparent border-0 hover:text-blue-700 p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"> *@
-                    @*         Create Route *@
-                    @*     </a> *@
-                    @* </li> *@
+                    <li>
+                        <a asp-area="" asp-controller="Booking" asp-action="Index"
+                           class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-transparent border-0 hover:text-blue-700 p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                            Book Passage
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Routes" asp-action="Index"
+                           class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-transparent border-0 hover:text-blue-700 p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                            Create Route
+                        </a>
+                    </li>
                 </ul>
                 <button id="theme-btn" class="ml-8 dark:text-white">
                     <i class="fa-solid fa-circle-half-stroke"></i>
@@ -44,12 +44,12 @@
         </div>
     </nav>
 </header>
-<div class="container flex flex-wrap justify-between items-center mx-auto">
+<div class="container flex flex-wrap justify-between items-center mx-auto overflow-auto">
     <main role="main" class="w-full">
         @RenderBody()
     </main>
 </div>
-<footer class="p-4 bg-white rounded-lg shadow max-w-7xl w-full mx-auto mt-auto md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-900">
+<footer class=" p-4 bg-white rounded-lg shadow w-full mx-auto mt-auto md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-900">
     <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
         © 2022 <a asp-area="" asp-controller="Home" asp-action="Index">SSL Booking</a>. All Rights Reserved.
     </span>
@@ -57,12 +57,12 @@
         <li>
             <a asp-area="" asp-controller="Home" asp-action="Index" class="mr-4 hover:underline md:mr-6 ">Home</a>
         </li>
-        @* <li> *@
-        @*     <a asp-area="" asp-controller="Booking" asp-action="Index" class="mr-4 hover:underline md:mr-6 ">Book Passage</a> *@
-        @* </li> *@
-        @* <li> *@
-        @*     <a asp-area="" asp-controller="Routes" asp-action="Index" class="mr-4 hover:underline md:mr-6 ">Create Route</a> *@
-        @* </li> *@
+        <li>
+            <a asp-area="" asp-controller="Booking" asp-action="Index" class="mr-4 hover:underline md:mr-6 ">Book Passage</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Routes" asp-action="Index" class="mr-4 hover:underline md:mr-6 ">Create Route</a>
+        </li>
         <li>
             <a href="https://github.com/" target="_blank" class="hover:underline">Github Repo</a>
         </li>

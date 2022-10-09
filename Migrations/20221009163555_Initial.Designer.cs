@@ -12,7 +12,7 @@ using SSLBooking.Models;
 namespace SSLBooking.Migrations
 {
     [DbContext(typeof(SSLBookingDbContext))]
-    [Migration("20221006164315_Initial")]
+    [Migration("20221009163555_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,33 @@ namespace SSLBooking.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("SSLBooking.Models.NewsItem", b =>
+                {
+                    b.Property<long?>("NewsItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long?>("NewsItemId"), 1L, 1);
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("NewsItemId");
+
+                    b.ToTable("NewsItems");
+                });
 
             modelBuilder.Entity("SSLBooking.Models.Route", b =>
                 {
@@ -53,6 +80,10 @@ namespace SSLBooking.Migrations
 
                     b.Property<int>("RouteNumber")
                         .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RouteId");
 

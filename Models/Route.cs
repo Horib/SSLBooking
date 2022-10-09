@@ -11,6 +11,8 @@ public class Route
 
     public string Location1 { get; set; } = String.Empty;
     public string Location2 { get; set; } = String.Empty;
+    
+    public string Type { get; set; } = String.Empty;
 
     [Column(TypeName = "decimal(8,2)")] public decimal Price { get; set; }
 }

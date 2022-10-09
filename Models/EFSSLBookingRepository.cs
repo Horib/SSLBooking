@@ -10,4 +10,5 @@ public class EFSSLBookingRepository : ISSLBookingRepository
     }
 
     public IQueryable<Route> Routes => _context.Routes;
+    public IQueryable<NewsItem> NewsItems => _context.NewsItems;
 }

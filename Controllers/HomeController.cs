@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using SSLBooking.Models;
+using SSLBooking.Models.ViewModels;
 
 namespace SSLBooking.Controllers;
 
@@ -12,8 +13,14 @@ public class HomeController : Controller
     {
         _repository = repo;
     }
-    public IActionResult Index()
+
+    // public IActionResult Index()
+    // {
+    //     return View(_repository.Routes);
+    // }
+    public IActionResult Index() => View(new HomePageInfo
     {
-        return View(_repository.Routes);
-    }
+        Routes = _repository.Routes,
+        NewsItems = _repository.NewsItems
+    });
 }

@@ -8,4 +8,5 @@ public class SSLBookingDbContext : DbContext
         : base(options){}
 
     public DbSet<Route> Routes => Set<Route>();
+    public DbSet<NewsItem> NewsItems => Set<NewsItem>();
 }

@@ -1,0 +1,21 @@
+@model NewsItem
+
+@{
+    Layout = null;
+}
+
+<div class="relative mt-0 bg-yellow-50 border-yellow-600 pl-3 pr-3 pt-3 pb-3 text-sm rounded-md border-l-4">
+    <div class="overflow-hidden ml-1.5">
+        <div class="flex items-start text-yellow-700">
+            <h4 class="font-semibold">@Model.Title</h4>
+        </div>
+        <div class="overflow-y-auto text-yellow-700 mt-2">@Model.Message</div>
+        @if (Model.Message2 != null)
+        {
+            <div class="w-full mx-auto bg-yellow-600 h-0.5 mt-6 mb-6 rounded-full"></div>
+            <div class="overflow-y-auto text-yellow-700 mt-2">
+                @Model.Message2
+            </div>
+        }
+    </div>
+</div>
