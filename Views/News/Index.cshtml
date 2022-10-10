@@ -1,0 +1,70 @@
+@model IEnumerable<NewsItem>
+
+
+@{
+    Layout = "_SimpleLayout";
+}
+
+<div class="flex flex-col space-y-6">
+    <table class="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+            <th scope="col" class="py-3 px-6 border-l-8 border-gray-50 dark:border-gray-700">
+                ID
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Title
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Message
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Message 2
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Type
+            </th>
+            <th scope="col" class="py-3 px-6 border-r-8 border-gray-50 dark:border-gray-700">
+                Action
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @{ int i = 0; }
+        @foreach (var ni in Model)
+        {
+            <tr class="border-b dark:border-gray-700 @(i % 2 == 0 ? "bg-white dark:bg-gray-900" : "bg-gray-50 dark:bg-gray-800")">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 dark:text-white border-l-8 border-@ni.Type-400">
+                    @ni.NewsItemId
+                </th>
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 dark:text-white">
+                    @ni.Title
+                </th>
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 dark:text-white">
+                    @ni.Message
+                </th>
+                <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">
+                    @ni.Message2
+                </td>
+                <td class="py-4 px-6">
+                    @ni.Type
+                </td>
+                <td class="py-4 px-6 border-r-8 border-@ni.Type-400">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                </td>
+            </tr>
+            i++;
+        }
+        </tbody >
+    </table >
+    <button
+        type="button"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 
+            focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 
+            mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none 
+            dark:focus:ring-blue-800 uppercase ml-auto w-40">
+        Add News Item
+    </button>
+    <div>
+    </div>
+</div>

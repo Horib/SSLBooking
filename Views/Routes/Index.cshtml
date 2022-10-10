@@ -1,0 +1,160 @@
+@model IEnumerable<Route>
+
+@{
+    Layout = "_SimpleLayout";
+}
+
+<div class="flex flex-col space-y-6">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+            <th scope="col" class="py-3 px-6">
+                ID
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Route Number
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Name
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Description
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Location 1
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Location 2
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Price
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Action
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @{ int index1 = 0; }
+        @foreach (var r in Model)
+        {
+            if (r.Type == "sea")
+            {
+                <tr class="border-b dark:border-gray-700 @(index1 % 2 == 0 ? "bg-white dark:bg-gray-900" : "bg-gray-50 dark:bg-gray-800")">
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @r.RouteId
+                    </th>
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @r.RouteNumber
+                    </th>
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @r.Name
+                    </th>
+                    <td class="py-4 px-6">
+                        @r.Description
+                    </td>
+                    <td class="py-4 px-6">
+                        @r.Location1
+                    </td>
+                    <td class="py-4 px-6">
+                        @r.Location2
+                    </td>
+                    <td class="py-4 px-6">
+                        @r.Price
+                    </td>
+                    <td class="py-4 px-6">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                index1++;
+            }
+        }
+        </tbody >
+    </table >
+    <button
+        type="button"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 
+            focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 
+            mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none 
+            dark:focus:ring-blue-800 uppercase ml-auto w-40">
+        Add Ferry Route
+    </button>
+
+</div>
+
+<div class="flex flex-col space-y-6">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+            <th scope="col" class="py-3 px-6">
+                ID
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Route Number
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Name
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Description
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Location 1
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Location 2
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Price
+            </th>
+            <th scope="col" class="py-3 px-6">
+                Action
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @{ int index2 = 0; }
+        @foreach (var r in Model)
+        {
+            if (r.Type == "land")
+            {
+                <tr class="border-b dark:border-gray-700 @(index2 % 2 == 0 ? "bg-white dark:bg-gray-900" : "bg-gray-50 dark:bg-gray-800")">
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @r.RouteId
+                    </th>
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @r.RouteNumber
+                    </th>
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        @r.Name
+                    </th>
+                    <td class="py-4 px-6">
+                        @r.Description
+                    </td>
+                    <td class="py-4 px-6">
+                        @r.Location1
+                    </td>
+                    <td class="py-4 px-6">
+                        @r.Location2
+                    </td>
+                    <td class="py-4 px-6">
+                        @r.Price
+                    </td>
+                    <td class="py-4 px-6">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                index2++;
+            }
+        }
+        </tbody >
+    </table >
+    <button
+        type="button"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 
+                focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 
+                mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none 
+                dark:focus:ring-blue-800 uppercase ml-auto w-40">
+        Add Bus Route
+    </button>
+</div>

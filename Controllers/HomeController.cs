@@ -9,7 +9,7 @@ namespace SSLBooking.Controllers;
 
 public class HomeController : Controller
 {
-    private ISSLBookingRepository _repository;
+    private readonly ISSLBookingRepository _repository;
 
     public HomeController(ISSLBookingRepository repo)
     {
