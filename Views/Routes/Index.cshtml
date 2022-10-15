@@ -29,14 +29,14 @@
             <th scope="col" class="py-3 px-6">
                 Price
             </th>
-            <th scope="col" class="py-3 px-6">
+            <th scope="col" class="py-3 px-6 text-center">
                 Action
             </th>
         </tr>
         </thead>
         <tbody>
         @{ int index1 = 0; }
-        @foreach (var r in Model)
+        @foreach (Route r in Model)
         {
             if (r.Type == "sea")
             {
@@ -62,8 +62,10 @@
                     <td class="py-4 px-6">
                         @r.Price
                     </td>
-                    <td class="py-4 px-6">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <td class="py-4 px-6 text-center">
+                        <a asp-controller="Routes" asp-action="Details" asp-route-id="@r.RouteId" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
+                        <a asp-controller="Routes" asp-action="Details" asp-route-id="@r.RouteId" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        <a asp-controller="Routes" asp-action="Details" asp-route-id="@r.RouteId" class="font-medium text-rose-600 dark:text-rose-500 hover:underline">Delete</a>
                     </td>
                 </tr>
                 index1++;
@@ -71,14 +73,14 @@
         }
         </tbody >
     </table >
-    <button
-        type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 
+    <a asp-action="Create"
+       type="button"
+       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 
             focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 
             mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none 
             dark:focus:ring-blue-800 uppercase ml-auto w-40">
         Add Ferry Route
-    </button>
+    </a>
 
 </div>
 
@@ -107,14 +109,14 @@
             <th scope="col" class="py-3 px-6">
                 Price
             </th>
-            <th scope="col" class="py-3 px-6">
+            <th scope="col" class="py-3 px-6 text-center">
                 Action
             </th>
         </tr>
         </thead>
         <tbody>
         @{ int index2 = 0; }
-        @foreach (var r in Model)
+        @foreach (Route r in Model)
         {
             if (r.Type == "land")
             {
@@ -140,8 +142,10 @@
                     <td class="py-4 px-6">
                         @r.Price
                     </td>
-                    <td class="py-4 px-6">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <td class="py-4 px-6 text-center">
+                        <a asp-controller="Routes" asp-action="Details" asp-route-id="@r.RouteId" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
+                        <a asp-controller="Routes" asp-action="Details" asp-route-id="@r.RouteId" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        <a asp-controller="Routes" asp-action="Details" asp-route-id="@r.RouteId" class="font-medium text-rose-600 dark:text-rose-500 hover:underline">Delete</a>
                     </td>
                 </tr>
                 index2++;
@@ -149,12 +153,12 @@
         }
         </tbody >
     </table >
-    <button
-        type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 
+    <a asp-action="Create"
+       type="button"
+       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 
                 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 
                 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none 
                 dark:focus:ring-blue-800 uppercase ml-auto w-40">
         Add Bus Route
-    </button>
+    </a>
 </div>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>SSL Booking</title>
     <link rel="icon" type="image/x-icon" href="~/assets/favicon.ico">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -13,6 +13,8 @@
       </script>
     <link rel="stylesheet" href="~/css/styles.css"/>
     <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"/>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body class="flex flex-col min-h-screen p-5 bg-slate-50 dark:bg-blue-200">
 <header class="sticky top-5 z-10">
@@ -26,7 +28,7 @@
                 <ul class="flex flex-row p-4 mt-0 rounded-lg border border-gray-100 space-x-4 text-sm font-medium border-0 dark:bg-gray-900 dark:border-gray-700">
                     <li>
                         <a asp-area="" asp-controller="Home" asp-action="Index"
-                           class="block py-2 pr-4 pl-3 text-white rounded bg-transparent text-blue-700 p-0 dark:text-white">
+                           class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-transparent hover:text-blue-700 p-0 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                             Home
                         </a>
                     </li>
@@ -54,13 +56,13 @@
     <main role="main" class="w-full">
         <div class="flex flex-row w-full mx-auto my-4 gap-8 bg-white shadow border-blue-400 ring-gray-200 p-6 rounded-lg dark:bg-gray-900">
             <section class="w-full h-full">
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-2 mb-6">
                     @foreach (var p in Model.NewsItems)
                     {
                         <partial name="_NewsItemPartial" model="p"/>
                     }
                 </div>
-                <div class="flex flex-col gap-4 my-6">  
+                <div class="flex flex-col gap-4">  
                     @RenderBody()
                 </div>
             </section>

@@ -9,4 +9,9 @@ public static class ViewModelFactory
             Route = r, Action = "Details"
         };
     }
+
+    public static RouteViewModel Create(Route route)
+    {
+        return new RouteViewModel { Route = route };
+    }
 }

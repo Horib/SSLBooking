@@ -33,26 +33,28 @@
         @{ int i = 0; }
         @foreach (var ni in Model)
         {
-            <tr class="border-b dark:border-gray-700 @(i % 2 == 0 ? "bg-white dark:bg-gray-900" : "bg-gray-50 dark:bg-gray-800")">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 dark:text-white border-l-8 border-@ni.Type-400">
-                    @ni.NewsItemId
-                </th>
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 dark:text-white">
-                    @ni.Title
-                </th>
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 dark:text-white">
-                    @ni.Message
-                </th>
-                <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">
-                    @ni.Message2
-                </td>
-                <td class="py-4 px-6">
-                    @ni.Type
-                </td>
-                <td class="py-4 px-6 border-r-8 border-@ni.Type-400">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
+            @* <a asp-controller="Routes" asp-action="Details" asp-route-id="@ni.RouteId> *@
+                <tr class="border-b dark:border-gray-700 @(i % 2 == 0 ? "bg-white dark:bg-gray-900" : "bg-gray-50 dark:bg-gray-800")">
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 dark:text-white border-l-8 border-@ni.Type-400">
+                        @ni.NewsItemId
+                    </th>
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 dark:text-white">
+                        @ni.Title
+                    </th>
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 dark:text-white">
+                        @ni.Message
+                    </th>
+                    <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">
+                        @ni.Message2
+                    </td>
+                    <td class="py-4 px-6">
+                        @ni.Type
+                    </td>
+                    <td class="py-4 px-6 border-r-8 border-@ni.Type-400">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+            // </a>
             i++;
         }
         </tbody >

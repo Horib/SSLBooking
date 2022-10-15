@@ -5,7 +5,7 @@ namespace SSLBooking.Controllers;
 
 public class NewsController : Controller
 {
-    private ISSLBookingRepository _repository;
+    private readonly ISSLBookingRepository _repository;
 
     public NewsController(ISSLBookingRepository repo)
     {

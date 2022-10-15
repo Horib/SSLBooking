@@ -5,51 +5,66 @@
 }
 
 @* <div class="flex flex-row w-full mx-auto my-4 gap-8 bg-white shadow border-blue-400 ring-gray-200 p-6 rounded-lg dark:bg-gray-900"> *@
-<div>
-    123
-    @* <section class="w-full h-full"> *@
-    @*     <div class="flex flex-col gap-2"> *@
-    @*         @foreach (var p in Model.NewsItems) *@
-    @*         { *@
-    @*             <partial name="_NewsItemPartial" model="p"/> *@
-    @*         } *@
-    @*     </div> *@
-    @*     <div class="flex flex-col gap-4 my-6"> *@
-    @*         <div min-h> *@
-    @*             <h2>Lorem</h2> *@
-    @*         </div> *@
-    @*         <div>Content section</div> *@
-    @*     </div> *@
-    @* </section> *@
-    @* $1$ <div class="h-auto mx-auto bg-slate-300 w-0.5 rounded-full"></div> #1# *@
-    @* <section class="min-w-fit flex flex-col gap-4"> *@
-    @*     <div class="relative w-full mx-auto text-left ring-1 mt-0 max-w-sm bg-white shadow border-blue-400 ring-gray-200 pl-6 pr-6 pt-6 pb-6 rounded-lg dark:bg-gray-900"> *@
-    @*         <div class="w-full max-w-none space-y-2 text-left mt-0"> *@
-    @*             <h2 class="truncate whitespace-nowrap mt-0 ml-2 pb-2 text-left text-gray-500 text-lg font-bold uppercase dark:text-white"> *@
-    @*                 Oyggjaleiðir *@
-    @*             </h2> *@
-    @*             @foreach (var p in Model.Routes) *@
-    @*             { *@
-    @*                 if (p.Type == "sea") *@
-    @*                 { *@
-    @*                     <partial name="_RoutePartial" model="p"/> *@
-    @*                 } *@
-    @*             } *@
-    @*         </div> *@
-    @*     </div> *@
-    @*     <div class="relative w-full mx-auto text-left ring-1 mt-0 max-w-sm bg-white shadow border-blue-400 ring-gray-200 pl-6 pr-6 pt-6 pb-6 rounded-lg dark:bg-gray-900"> *@
-    @*         <div class="w-full max-w-none space-y-2 text-left mt-0"> *@
-    @*             <h2 class="truncate whitespace-nowrap mt-0 ml-2 pb-2 text-left text-gray-500 text-lg font-bold uppercase dark:text-white"> *@
-    @*                 Bygdaleiðir *@
-    @*             </h2> *@
-    @*             @foreach (var p in Model.Routes) *@
-    @*             { *@
-    @*                 if (p.Type == "land") *@
-    @*                 { *@
-    @*                     <partial name="_RoutePartial" model="p"/> *@
-    @*                 } *@
-    @*             } *@
-    @*         </div> *@
-    @*     </div> *@
-    @* </section> *@
+@* <div> *@
+@* <section class="w-full h-full"> *@
+@*     <div class="flex flex-col gap-2"> *@
+@*         @foreach (var p in Model.NewsItems) *@
+@*         { *@
+@*             <partial name="_NewsItemPartial" model="p"/> *@
+@*         } *@
+@*     </div> *@
+@*     <div class="flex flex-col gap-4 my-6"> *@
+@*         <div min-h> *@
+@*             <h2>Lorem</h2> *@
+@*         </div> *@
+@*         <div>Content section</div> *@
+@*     </div> *@
+@* </section> *@
+@* $1$ <div class="h-auto mx-auto bg-slate-300 w-0.5 rounded-full"></div> #1# *@
+@* <section class="min-w-fit flex flex-col gap-4"> *@
+@*     <div class="relative w-full mx-auto text-left ring-1 mt-0 max-w-sm bg-white shadow border-blue-400 ring-gray-200 pl-6 pr-6 pt-6 pb-6 rounded-lg dark:bg-gray-900"> *@
+@*         <div class="w-full max-w-none space-y-2 text-left mt-0"> *@
+@*             <h2 class="truncate whitespace-nowrap mt-0 ml-2 pb-2 text-left text-gray-500 text-lg font-bold uppercase dark:text-white"> *@
+@*                 Oyggjaleiðir *@
+@*             </h2> *@
+@*             @foreach (var p in Model.Routes) *@
+@*             { *@
+@*                 if (p.Type == "sea") *@
+@*                 { *@
+@*                     <partial name="_RoutePartial" model="p"/> *@
+@*                 } *@
+@*             } *@
+@*         </div> *@
+@*     </div> *@
+@*     <div class="relative w-full mx-auto text-left ring-1 mt-0 max-w-sm bg-white shadow border-blue-400 ring-gray-200 pl-6 pr-6 pt-6 pb-6 rounded-lg dark:bg-gray-900"> *@
+@*         <div class="w-full max-w-none space-y-2 text-left mt-0"> *@
+@*             <h2 class="truncate whitespace-nowrap mt-0 ml-2 pb-2 text-left text-gray-500 text-lg font-bold uppercase dark:text-white"> *@
+@*                 Bygdaleiðir *@
+@*             </h2> *@
+@*             @foreach (var p in Model.Routes) *@
+@*             { *@
+@*                 if (p.Type == "land") *@
+@*                 { *@
+@*                     <partial name="_RoutePartial" model="p"/> *@
+@*                 } *@
+@*             } *@
+@*         </div> *@
+@*     </div> *@
+@* </section> *@
+@* </div> *@
+<div class="aspect-w-16 aspect-h-9">
+    <div id='map' class="w-full h-full rounded-md"></div>
 </div>
+<script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiaG9yaWIiLCJhIjoiY2w5OXg5YWV6MDN5YzNwcGs3ZDJyazQ1diJ9.cgYAuX-VRiOGGW1LvTcOTg';
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [-6.3, 61.7], 
+        zoom: 7.5,        
+        minZoom: 6,
+      });
+      // const marker1 = new mapboxgl.Marker()
+      // .setLngLat([-10.5, 61])
+      // .addTo(map);
+</script>

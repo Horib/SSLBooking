@@ -1,4 +1,4 @@
-namespace SSLBooking.Models.ViewModels;
+namespace SSLBooking.Models;
 
 public class RouteViewModel
 {
