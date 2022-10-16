@@ -5,15 +5,15 @@ namespace SSLBooking.Controllers;
 
 public class NewsController : Controller
 {
-    private readonly ISSLBookingRepository _repository;
+    private readonly DataContext _context;
 
-    public NewsController(ISSLBookingRepository repo)
+    public NewsController(DataContext data)
     {
-        _repository = repo;
+        _context = data;
     }
 
     public IActionResult Index()
     {
-        return View(_repository.NewsItems);
+        return View(_context.NewsItems);
     }
 }

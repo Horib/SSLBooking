@@ -6,16 +6,19 @@ namespace SSLBooking.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ISSLBookingRepository _repository;
+    private readonly DataContext context;
+    
+    private IEnumerable<NewsItem> NewsItems => context.NewsItems;
 
-    public HomeController(ISSLBookingRepository repo)
+
+    public HomeController(DataContext data)
     {
-        _repository = repo;
+        context = data;
     }
 
     public IActionResult Index() => View(new HomePageInfo
     {
-        Routes = _repository.Routes,
-        NewsItems = _repository.NewsItems
+        Routes = context.Routes,
+        NewsItems = context.NewsItems
     });
 }

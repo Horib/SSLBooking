@@ -5,13 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<SSLBookingDbContext>(opts =>
+builder.Services.AddDbContext<DataContext>(opts =>
 {
     opts.UseSqlServer(
         builder.Configuration["ConnectionStrings:SSLBookingConnection"]);
+    opts.EnableSensitiveDataLogging(true);
 });
-
-builder.Services.AddScoped<ISSLBookingRepository, EFSSLBookingRepository>();
 
 var app = builder.Build();
 
@@ -19,6 +18,8 @@ app.UseStaticFiles();
 
 app.MapDefaultControllerRoute();
 
-SeedData.EnsurePopulated(app);
+var context = app.Services.CreateScope().ServiceProvider
+    .GetRequiredService<DataContext>();
+SeedData.SeedDatabase(context);
 
 app.Run();

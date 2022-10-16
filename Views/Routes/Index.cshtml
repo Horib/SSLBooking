@@ -35,8 +35,8 @@
         </tr>
         </thead>
         <tbody>
-        @{ int index1 = 0; }
-        @foreach (Route r in Model)
+        @{ var index1 = 0; }
+        @foreach (var r in Model)
         {
             if (r.Type == "sea")
             {
@@ -115,8 +115,8 @@
         </tr>
         </thead>
         <tbody>
-        @{ int index2 = 0; }
-        @foreach (Route r in Model)
+        @{ var index2 = 0; }
+        @foreach (var r in Model)
         {
             if (r.Type == "land")
             {

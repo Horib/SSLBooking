@@ -4,17 +4,10 @@ namespace SSLBooking.Models;
 
 public static class SeedData
 {
-    public static void EnsurePopulated(IApplicationBuilder app)
+    public static void SeedDatabase(DataContext context)
     {
-        SSLBookingDbContext context = app.ApplicationServices.CreateScope().ServiceProvider
-            .GetRequiredService<SSLBookingDbContext>();
-
-        if (context.Database.GetPendingMigrations().Any())
-        {
-            context.Database.Migrate();
-        }
-
-        if (!context.Routes.Any())
+        context.Database.Migrate();
+        if (context.Routes.Count() == 0 && context.NewsItems.Count() == 0)
         {
             context.Routes.AddRange(
                 new Route
@@ -59,32 +52,28 @@ public static class SeedData
                 }
             );
 
-            if (!context.NewsItems.Any())
-            {
-                context.NewsItems.AddRange(
-                    new NewsItem()
-                    {
-                        Title = "9. okt: Kunning viðv. leið 56",
-                        Message = "Eftir ætlan verður siglt smbr. ferðaætlan á leið 56 tað ið eftir er av degnum.",
-                        Message2 = "Galdandi fyri: 56 Klaksvík - Syðradalur "
-                    },
-                    new NewsItem()
-                    {
-                        Title = "Broytingar hjá Bygdaleiðum í viku 41",
-                        Message =
-                            "Í komandi viku (vika 41) verður heystferia, og tað merkir, at okkara bussar ið koyra til og frá ymsum skúlum, at teir grønu túrarnir í ferðaætlanini verða ikki koyrdir í viku 41. Koyrt verður sum vant aftur í viku 42.",
-                        Type = "sky"
-                    },
-                    new NewsItem()
-                    {
-                        Title = "Eyka ruta til Súðuroyar",
-                        Message =
-                            "Næstu 5 vikurnar Siglur Smyril tveir eykatúrar um dagin",
-                        Type = "emerald"
-                    }
-                );
-            }
-
+            context.NewsItems.AddRange(
+                new NewsItem()
+                {
+                    Title = "9. okt: Kunning viðv. leið 56",
+                    Message = "Eftir ætlan verður siglt smbr. ferðaætlan á leið 56 tað ið eftir er av degnum.",
+                    Message2 = "Galdandi fyri: 56 Klaksvík - Syðradalur "
+                },
+                new NewsItem()
+                {
+                    Title = "Broytingar hjá Bygdaleiðum í viku 41",
+                    Message =
+                        "Í komandi viku (vika 41) verður heystferia, og tað merkir, at okkara bussar ið koyra til og frá ymsum skúlum, at teir grønu túrarnir í ferðaætlanini verða ikki koyrdir í viku 41. Koyrt verður sum vant aftur í viku 42.",
+                    Type = "sky"
+                },
+                new NewsItem()
+                {
+                    Title = "Eyka ruta til Súðuroyar",
+                    Message =
+                        "Næstu 5 vikurnar Siglur Smyril tveir eykatúrar um dagin",
+                    Type = "emerald"
+                }
+            );
             context.SaveChanges();
         }
     }
