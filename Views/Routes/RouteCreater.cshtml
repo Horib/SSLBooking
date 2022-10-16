@@ -1,3 +1,4 @@
+@using Route = Microsoft.AspNetCore.Routing.Route
 @model RouteViewModel
 
 @{
@@ -5,6 +6,7 @@
 }
 
 <div>
+    <partial name="_Validation"/>
     <form asp-action="@Model.Action" method="post">
         <div class="mb-6 basis-1/2 invisible absolute">
             <label asp-for="Route.RouteId" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">ID</label>
@@ -14,30 +16,36 @@
             <div class="mb-6 basis-1/2">
                 <label asp-for="Route.RouteNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Route Number</label>
                 <input asp-for="Route.RouteNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                <span asp-validation-for="Route.RouteNumber" class="mt-2 text-sm text-red-600 dark:text-red-500"></span>
             </div>
             <div class="mb-6 basis-1/2">
                 <label asp-for="Route.Name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Route Name</label>
                 <input asp-for="Route.Name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Gamlarætt - Sandur" required>
+                <span asp-validation-for="Route.Name" class="mt-2 text-sm text-red-600 dark:text-red-500"></span>
             </div>
         </div>
         <div class="flex gap-6">
             <div class="mb-6 basis-1/2">
                 <label asp-for="Route.Location1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">1. Location</label>
                 <input asp-for="Route.Location1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Gamlarætt" required>
+                <span asp-validation-for="Route.Location1" class="mt-2 text-sm text-red-600 dark:text-red-500"></span>
             </div>
             <div class="mb-6 basis-1/2">
                 <label asp-for="Route.Location2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">2. Location</label>
                 <input asp-for="Route.Location2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Sandur" required>
+                <span asp-validation-for="Route.Location2" class="mt-2 text-sm text-red-600 dark:text-red-500"></span>
             </div>
         </div>
         <div class="mb-6 flex-1">
-            <label asp-for="Route.RouteNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
+            <label asp-for="Route.Description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
             <textarea asp-for="Route.Description" class="h-[135px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Add a short description" required></textarea>
+            <span asp-validation-for="Route.Description" class="mt-2 text-sm text-red-600 dark:text-red-500"></span>
         </div>
         <div class="flex gap-6">
             <div class="mb-6 basis-1/2">
                 <label asp-for="Route.Price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Price</label>
                 <input asp-for="Route.Price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                <span asp-validation-for="Route.Price" class="mt-2 text-sm text-red-600 dark:text-red-500"></span>
             </div>
             <div class="mb-6 flex-auto">
                 <label asp-for="Route.Type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Type</label>
@@ -45,6 +53,7 @@
                 <select asp-for="Route.RouteTypeId" asp-items="@(new SelectList(Model?.RouteTypes, "RouteTypeId", "Name"))" class="capitalize bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option value="" selected class="capitalize">Choose a Route Type</option>
                 </select>
+                <span asp-validation-for="Route.RouteTypeId" class="mt-2 text-sm text-red-600 dark:text-red-500"></span>
             </div>
         </div>
         <div class="flex gap-6">

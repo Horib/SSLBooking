@@ -26,6 +26,7 @@ public class Route
     [Column(TypeName = "decimal(8,2)")]
     public decimal Price { get; set; }
 
+    [Required(ErrorMessage = "Please select a type")]
     public long RouteTypeId { get; set; }
     public RouteType? Type { get; set; }
 }
