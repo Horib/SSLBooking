@@ -43,7 +43,7 @@
                 <label asp-for="Route.Type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Type</label>
                 @* <input asp-for="Route.Type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Gamlarætt - Sandur" required> *@
                 <select asp-for="Route.RouteTypeId" asp-items="@(new SelectList(Model?.RouteTypes, "RouteTypeId", "Name"))" class="capitalize bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="" disabled selected class="capitalize">Choose a Route Type</option>
+                    <option value="" selected class="capitalize">Choose a Route Type</option>
                 </select>
             </div>
         </div>

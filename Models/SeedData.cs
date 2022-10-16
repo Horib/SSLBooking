@@ -7,8 +7,13 @@ public static class SeedData
     public static void SeedDatabase(DataContext context)
     {
         context.Database.Migrate();
-        if (context.Routes.Count() == 0 && context.NewsItems.Count() == 0)
+        if (context.Routes.Count() == 0
+            && context.NewsItems.Count() == 0
+            && context.RouteTypes.Count() == 0)
         {
+            RouteType routeType1 = new RouteType() { Name = "ferry" };
+            RouteType routeType2 = new RouteType() { Name = "bus" };
+
             context.Routes.AddRange(
                 new Route
                 {
@@ -17,7 +22,7 @@ public static class SeedData
                     Description = "Route between Tórshavn and Little Denmark",
                     Location1 = "Tórshavn",
                     Location2 = "Tvøroyri",
-                    Type = "sea",
+                    Type = routeType1,
                     Price = 750.00m
                 },
                 new Route
@@ -27,17 +32,17 @@ public static class SeedData
                     Description = "Route between Streymoy and Sandoy",
                     Location1 = "Gamlarætt",
                     Location2 = "Sandur",
-                    Type = "sea",
+                    Type = routeType1,
                     Price = 580.00m
                 },
                 new Route
                 {
                     Name = "Tórshavn - Nólsoy",
-                    RouteNumber = 60,
+                    RouteNumber = 90,
                     Description = "Route between Streymoy and Nólsoy",
                     Location1 = "Tórshavn",
                     Location2 = "Nólsoy",
-                    Type = "sea",
+                    Type = routeType1,
                     Price = 120.00m
                 },
                 new Route
@@ -47,7 +52,7 @@ public static class SeedData
                     Description = "Bus route between Tórshavn and Klaksvík",
                     Location1 = "Tórshavn",
                     Location2 = "Klaksvík",
-                    Type = "land",
+                    Type = routeType2,
                     Price = 100.00m
                 }
             );
@@ -74,6 +79,7 @@ public static class SeedData
                     Type = "emerald"
                 }
             );
+
             context.SaveChanges();
         }
     }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="~/css/styles.css"/>
     <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"/>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet'/>
 </head>
 <body class="flex flex-col min-h-screen p-5 bg-slate-50 dark:bg-blue-200">
 <header class="sticky top-5 z-10">
@@ -62,39 +62,28 @@
                         <partial name="_NewsItemPartial" model="p"/>
                     }
                 </div>
-                <div class="flex flex-col gap-4">  
+                <div class="flex flex-col gap-4">
                     @RenderBody()
                 </div>
             </section>
             <section class="min-w-fit flex flex-col gap-4">
-                <div class="relative w-full mx-auto text-left ring-1 mt-0 max-w-sm bg-white shadow border-blue-400 ring-gray-200 pl-6 pr-6 pt-6 pb-6 rounded-lg dark:bg-gray-900">
-                    <div class="w-full max-w-none space-y-2 text-left mt-0">
-                        <h2 class="truncate whitespace-nowrap mt-0 ml-2 pb-2 text-left text-gray-500 text-lg font-bold uppercase dark:text-white">
-                            Oyggjaleiðir
-                        </h2>
-                        @foreach (var p in Model.Routes)
-                        {
-                            if (p.Type == "sea")
+                @foreach (RouteType rt in Model.RouteTypes)
+                {
+                    <div class="relative w-full mx-auto text-left ring-1 mt-0 max-w-sm bg-white shadow border-blue-400 ring-gray-200 pl-6 pr-6 pt-6 pb-6 rounded-lg dark:bg-gray-900">
+                        <div class="w-full max-w-none space-y-2 text-left mt-0">
+                            <h2 class="truncate whitespace-nowrap mt-0 ml-2 pb-2 text-left text-gray-500 text-lg font-bold uppercase dark:text-white">
+                                Oyggjaleiðir
+                            </h2>
+                            @foreach (Route r in Model.Routes)
                             {
-                                <partial name="_RoutePartial" model="p"/>
+                                if (rt.RouteTypeId == r.RouteTypeId)
+                                {
+                                    <partial name="_RoutePartial" model="r"/>
+                                }
                             }
-                        }
+                        </div>
                     </div>
-                </div>
-                <div class="relative w-full mx-auto text-left ring-1 mt-0 max-w-sm bg-white shadow border-blue-400 ring-gray-200 pl-6 pr-6 pt-6 pb-6 rounded-lg dark:bg-gray-900">
-                    <div class="w-full max-w-none space-y-2 text-left mt-0">
-                        <h2 class="truncate whitespace-nowrap mt-0 ml-2 pb-2 text-left text-gray-500 text-lg font-bold uppercase dark:text-white">
-                            Bygdaleiðir
-                        </h2>
-                        @foreach (var p in Model.Routes)
-                        {
-                            if (p.Type == "land")
-                            {
-                                <partial name="_RoutePartial" model="p"/>
-                            }
-                        }
-                    </div>
-                </div>
+                }
             </section>
         </div>
     </main>
